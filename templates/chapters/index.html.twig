@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chapters index{% endblock %}
+
+{% block body %}
+
+<main id="main-chapters-index">
+
+    <h1>Chapters index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Chapter Order</th>
+                <th>Duration</th>
+                <th>Audiobook Title</th>
+                <th>Audiobook Author</th>
+                <th>Audiobook ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for chapter in chapters %}
+                <tr>
+                    <td>{{ chapter.id }}</td>
+                    <td>{{ chapter.title }}</td>
+                    <td>{{ chapter.chapterOrder }}</td>
+                    <td>{{ chapter.duration }}</td>
+                    <td>{{ chapter.audiobooks.title }}</td>
+                    <td>{{ chapter.audiobooks.authors.firstName }} {{ chapter.audiobooks.authors.lastName }}</td>
+                    <td>{{ chapter.audiobooks.id }}</td>
+                    <td>
+                        <a href="{{ path('app_chapters_show', {'id': chapter.id}) }}">Show</a>
+                        <a href="{{ path('app_chapters_edit', {'id': chapter.id}) }}">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">No records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chapters_new') }}" class="btn btn-outline-primary">Create New Chapter</a>
+
+</main>
+
+
+    
+{% endblock %}

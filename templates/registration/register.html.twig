@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<main id="main-register">
+
+    <form method="post">
+    
+
+        <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
+
+        {{ form_start(registrationForm) }}
+
+        
+        {{ form_row(registrationForm.email, {
+            'attr': {'class': 'form-control', 'id': 'email', 'autocomplete': 'email', 'required': 'true'}
+        }) }}
+        
+        
+        {{ form_row(registrationForm.plainPassword, {
+            'label': 'Password',
+            'attr': {'class': 'form-control', 'id': 'password', 'autocomplete': 'new-password', 'required': 'true'}
+        }) }}
+
+       
+        {{ form_row(registrationForm.agreeTerms, {
+            'attr': {'class': 'form-check-input', 'id': 'agreeTerms'}
+        }) }}
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <button type="submit" class="btn btn-primary" id="button-register">Register</button>
+
+        {{ form_end(registrationForm) }}
+
+    </form>
+
+</main>
+
+{% endblock %}

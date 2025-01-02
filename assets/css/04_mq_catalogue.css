@@ -1,0 +1,121 @@
+/* MEDIA QUERIES ******************************************************* */
+
+@media screen and (min-width:768px) {
+
+  /*  HEADER ******************************************************* */
+
+
+  /* CAROUSEL */
+
+
+  .all-slides .one-slide img {
+    height: 80vh;
+  }
+
+
+  /*  MAIN ******************************************************* */
+
+
+  /* SECTION AUDIOBOOKS GALLERY */
+
+  .audiobook-item img {
+    height: 30vh;
+  }
+
+}
+
+
+
+
+@media screen and (min-width:1280px) {
+
+
+
+
+
+  /*  HEADER ******************************************************* */
+
+
+  #catalogue-nav-top {
+    display: flex;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    background-color: #fff9ed;
+    box-shadow: 1px 11px 21px 0px rgb(73, 48, 11);
+
+  }
+
+
+  #catalogue-nav-top h2 {
+    font-family: "Meshed";
+    font-size: 50px;
+    text-align: center;
+    margin-right: 10px;
+    color: rgb(73, 48, 11);
+  }
+
+
+  #search form {
+    width: 50vw;
+  }
+
+
+
+  
+
+
+
+
+
+
+  /* CAROUSEL */
+
+
+  #carousel {
+    width: 80vw;
+    justify-self: center;
+    margin-top: 40px;
+  }
+
+  .all-slides {
+    height: 80vh;
+    overflow: hidden;
+
+  }
+
+
+  .all-slides .one-slide img {
+    height: 150vh;
+
+  }
+
+
+
+  /*  MAIN ******************************************************* */
+
+  /* SECTION SEARCH */
+
+  #catalogue-search {
+    display: none;
+  }
+
+  /* SECTION AUDIOBOOKS GALLERY */
+
+
+  #all-audiobooks {
+    width: 80vw;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50% 50%;
+  }
+
+  .audiobook-item img {
+    height: 40vh;
+  }
+
+
+
+}

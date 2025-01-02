@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>
+
+    {% block title %}
+    AUDIOBOOK PLAYER
+    {% endblock %}
+
+  </title>
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22></text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>" />
+
+  {% block stylesheets %}
+
+
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="{{ asset('css/01_mobile_playback.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/02_mq_playback.css') }}" />
+
+  {% endblock %}
+
+  {% block javascripts %}
+  {% block importmap %} {{ importmap('script_playback') }} {% endblock %}
+
+  <script id="chapters-data" type="application/json">
+        {{ chapters|json_encode()|raw }}
+      </script>
+
+  {% endblock %}
+
+</head>
+
+<body>
+  {% block body %}
+
+  <div id="parent-playback">
+
+
+    <header>
+      <nav id="playback-top">
+        <div>
+          <a href={{path("app_catalogue")}}>
+            <i class="bi bi-house"></i></a>
+
+        </div>
+      </nav>
+    </header>
+
+
+
+    <main id="main-playback">
+      <div id="audiobook-player">
+
+        <div class="on-the-left">
+          <!-- Audiobook Details Section -->
+          <div class="audiobook-details" data-cover="{{ asset('upload/audiobooks_covers/' ~ audiobook.imageName) }}">
+            <div id="audiobook-title-author">
+              <h1>{{ audiobook.title }}</h1>
+              <p>
+                {{ audiobook.authors.firstName }} {{ audiobook.authors.lastName }}
+              </p>
+            </div>
+
+
+            <!-- Audio Player for the Selected Chapter -->
+            <div class="audio-player">
+              {% if selectedChapter %}
+
+
+              <h3 id="now-playing">{{ selectedChapter.title }}</h3>
+
+              <audio id="audio-player" controls>
+                <source src="{{ asset('upload/chapters_audios/' ~ selectedChapter.audioFilename) }}"
+                  type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+
+
+
+
+              <div id="two-times">
+                <span id="current-time"></span> <span id="duration"></span>
+              </div>
+              <!-- Custom Progress Bar -->
+              <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+              </div>
+
+
+              <!-- Custom Controls -->
+              <div class="controls">
+                <div id="prev-button"><i class="bi bi-caret-left-fill"></i></div>
+                <div id="play-pause-button"><i class="bi bi-play-circle"></i></div>
+                <div id="next-button"><i class="bi bi-caret-right-fill"></i></div>
+              </div>
+              {% else %}
+              <p>No chapter selected.</p>
+              {% endif %}
+            </div>
+
+
+
+
+          </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="on-the-right">
+          <!-- Chapters List Section -->
+          <h2>Choose your chapter</h2>
+          <ul class="chapters-list">
+            {% for chapter in chapters %}
+            <li>
+              <a href="{{ path('app_playback', { id: audiobook.id }) }}?chapter_id={{ chapter.id }}">{{ chapter.title
+                }}</a>
+
+            </li>
+            {% else %}
+            <p>No chapters found for this audiobook.</p>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+
+  {% endblock %}
+</body>
+
+</html>

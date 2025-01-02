@@ -1,0 +1,226 @@
+/* FONT FACE ******************************************************* */
+
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Meshed";
+    src: url(../font/MeshedDisplay-Regular.woff2);
+}
+
+
+
+/*  RESET ******************************************************* */
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+
+img,
+svg,
+input,
+video {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+
+
+
+
+/*  BODY ******************************************************* */
+
+#parent-playback {
+    background-image:
+    linear-gradient(rgb(73, 48, 11, 0.95),20%, rgb(0, 0, 0, 0.95)),
+    url('../img/fond_player_small.jpg');
+    background-repeat: repeat;
+}
+
+
+/*  HEADER ******************************************************* */
+
+#playback-top {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    width: 80vw;
+    justify-self: center;
+}
+
+
+
+
+#playback-top a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+
+
+/*  MAIN ******************************************************* */
+
+#main-playback {
+    width: 100%;
+}
+
+
+
+#audiobook-player {
+    padding-top: 20px;
+    height: 100vh;
+}
+
+
+/* ON THE LEFT */
+
+.audiobook-details {
+    width: 80vw;
+    height: 60vh;
+    justify-self: center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+#audiobook-title-author {
+    padding: 10px 0 0 10px;
+}
+
+#audiobook-title-author h1 {
+    font-family: "Meshed";
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
+#now-playing {
+    font-weight: 200;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+.audio-player {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    padding: 0 10px;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+
+audio {
+    display: none;
+}
+
+
+/* Progress bar */
+
+
+#two-times {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.progress-bar {
+    height: 3vh;
+    display: flex;
+    align-items: center;
+}
+
+#progress {
+    height: 1px;
+    background-color: white;
+}
+
+
+/* Player Navigation */
+
+
+#play-pause-button {
+    background-color: transparent;
+    border: 0;
+}
+
+
+#play-pause-button i {
+    font-size: 40px;
+    color: white;
+}
+
+#prev-button i, #next-button i {
+    font-size: 30px;
+    color: white;
+}
+
+#play-pause-button i:hover {
+    cursor: pointer;
+}
+
+
+.controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#play-pause-button {
+    margin: 0 10px;
+}
+
+
+/* ON THE RIGHT*/
+
+
+.on-the-right {
+    width: 80vw;
+    justify-self: center;
+}
+
+.on-the-right h2 {
+color: white;
+padding-top: 20px;
+}
+
+.on-the-right ul {
+    padding-top: 20px;
+}
+
+.chapters-list li {
+    height: 3vh;
+    display: flex;
+    align-items: center;
+}
+
+.chapters-list li:hover {
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}
+
+.chapters-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+.chapters-list li a:hover {
+    color: black;
+    
+}

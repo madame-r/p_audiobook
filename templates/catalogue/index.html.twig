@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AUDIOBOOKS CATALOGUE{% endblock %}</title>
+
+    {% block stylesheets %}
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+        integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="{{ asset('css/03_mobile_catalogue.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/04_mq_catalogue.css') }}" />
+
+    {% endblock %}
+
+    {% block javascripts %}
+    {% block importmap %}{{ importmap('script_catalogue') }}{% endblock %}
+
+    <!-- Include carousel data -->
+    <script id="carousel-data" type="application/json">
+        {{ carouselData|json_encode()|raw }}
+    </script>
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    <div id="parent-catalogue">
+        <header>
+
+
+            <nav id="catalogue-nav-top">
+                <h2>CATALOGUE</h2>
+
+                <!-- Search Form -->
+                <div id="search">
+                    <form method="get" action="{{ path('app_catalogue') }}" class="d-flex">
+                        <input type="text" name="search" value="{{ searchTerm }}" placeholder="Search by title..." class="search-input"/>
+                        <button type="submit">
+                            <i class="bi bi-search"></i> 
+                        </button>
+                    </form>
+                </div>
+            </nav>
+
+                <div id="carousel">
+                    <div class="all-slides"></div>
+
+                    <!-- Dots for Slide Navigation -->
+                    <div class="dots"></div>
+                </div>
+
+        </header>
+
+        <main>
+
+
+            <section id="catalogue-search">
+
+                <h2>CATALOGUE</h2>
+
+                <!-- Search Form -->
+                <div id="search">
+                    <form method="get" action="{{ path('app_catalogue') }}" class="d-flex">
+                        <input type="text" name="search" value="{{ searchTerm }}" placeholder="Search by title..." class="search-input"/>
+                        <button type="submit">
+                            <i class="bi bi-search"></i> 
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+
+
+
+
+            <section id="audiobooks-gallery">
+                <div id="all-audiobooks">
+                    {% for audiobook in audiobooks %}
+                    <div class="audiobook-item">
+                        <div class="audiobook-cover">
+                            <img src="{{ asset('upload/audiobooks_covers/' ~ audiobook.imageName) }}"
+                                alt="{{ audiobook.title }} cover" class="audiobook-cover">
+                            <div class="overlay">
+                                <a href="{{ path('app_playback', {'id': audiobook.id}) }}">
+                                    <button class="button-overlay">PLAY</button>
+                                </a>
+                            </div>
+                        </div>
+                        <h2>{{ audiobook.title }}</h2>
+                        <p>{{ audiobook.authors.firstName ~ ' ' ~ audiobook.authors.lastName }}</p>
+                    </div>
+                    {% else %}
+                    <p>No audiobooks available.</p>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

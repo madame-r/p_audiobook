@@ -1,3 +1,239 @@
-body {
-    background-color: skyblue;
+/* All Admin Templates ******************************************* */
+
+
+#main-new-audiobook,
+#main-show-audiobooks,
+#main-edit-audiobooks,
+#main-new-chapter,
+#main-edit-chapters,
+#main-new-author,
+#main-new-genre,
+#main-login,
+#main-register {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+
+
+#main-audiobooks-index,
+#main-chapters-index,
+#main-authors-index,
+#main-genres-index {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+
+#main-new-audiobook form,
+#main-show-audiobooks table,
+#main-edit-audiobooks form,
+#main-audiobooks-index table,
+#main-new-chapter form,
+#main-edit-chapters form,
+#main-authors-index table,
+#main-new-author form,
+#main-genres-index table,
+#main-new-genre form
+ {
+    width: 60vw;
+}
+
+
+
+
+/* Audiobooks Templates ******************************************* */
+
+
+/* New */
+
+#main-new-audiobook div {
+    margin: 20px 0;
+}
+
+#main-new-audiobook form button,
+#main-new-author form button,
+#main-new-genre form button
+ {
+    margin: 20px 0;
+}
+
+
+
+/* Show */
+
+#audiobooks-cover {
+    max-width: 20vw;
+}
+
+
+#show-audiobooks-bottom {
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Edit */
+
+#main-edit-audiobooks div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    margin: 20px 0;
+}
+
+
+
+
+#main-edit-audiobooks form .vich-file {
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+}
+
+#main-edit-audiobooks form .vich-file input {
+    width: 70%;
+}
+
+#main-edit-audiobooks form .vich-file div {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+
+#main-edit-audiobooks form .vich-file div label {
+    width: 40%;
+}
+
+#main-edit-audiobooks form .vich-file div input {
+    width: 5%;
+}
+
+
+
+#edit-audiobooks-bottom {
+    display: flex;
+    align-items: center;
+    width: 60vw;
+    margin-top: 40px;
+}
+
+#edit-audiobooks-bottom a,
+#edit-audiobooks-bottom form {
+    width: 50%;
+}
+
+
+#edit-audiobooks-bottom form {
+    text-align: right;
+}
+
+/* Chapters Templates ******************************************* */
+
+
+/* New */
+
+
+
+#main-new-chapter  div {
+    margin: 20px 0;
+}
+
+#main-new-chapter form button {
+    margin: 20px 0;
+}
+
+
+
+
+
+/* Edit */
+
+#main-edit-chapters div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    margin: 20px 0;
+}
+
+
+
+
+#main-edit-chapters form .vich-file {
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+}
+
+#main-edit-chapters form .vich-file input {
+    width: 70%;
+}
+
+#main-edit-chapters form .vich-file div {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+
+#main-edit-chapters form .vich-file div label {
+    width: 40%;
+}
+
+#main-edit-chapters form .vich-file div input {
+    width: 5%;
+}
+
+#edit-chapters-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+    margin-top: 40px;
+}
+
+#edit-chapters-bottom a,
+#edit-chapters-bottom form {
+    width: 50%;
+}
+
+
+#edit-chapters-bottom form {
+    text-align: right;
+}
+
+
+/* Login Templates ******************************************* */
+
+#main-login form,
+#main-register form
+ {
+    width: 30vw;
+}
+
+
+
+#button-login,
+#button-register {
+    margin-top: 20px;
+}
+
+
+/* Register Templates ******************************************* */
+
+
+#main-register form div {
+
+    display: flex;
+    flex-direction: column;
 }

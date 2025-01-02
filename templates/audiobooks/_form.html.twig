@@ -1,0 +1,36 @@
+{{ form_start(form) }}
+
+<div class="form-group">
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.authors) }}
+    {{ form_widget(form.authors, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.genre) }}
+    {{ form_widget(form.genre, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<!-- Current Cover Image Display (if available) -->
+<div class="form-group">
+    <label for="audiobook_cover_image">Current Cover Image:</label>
+    {% if audiobook.imageName %}
+        <img src="/assets/img/audiobooks_covers/{{ audiobook.imageName }}" alt="Cover Image" style="max-width: 200px;">
+    {% else %}
+        <p>No cover image available</p>
+    {% endif %}
+</div>
+
+<!-- Image Upload Field -->
+<div class="form-group">
+    {{ form_label(form.imageFile) }}
+    {{ form_widget(form.imageFile, {'attr': {'class': 'form-control-file'}}) }}
+</div>
+
+<button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Audiobooks Catalogue{% endblock %}
+
+{% block body %}
+
+<main id="main-audiobooks-index">
+
+    <h1>Audiobooks Catalogue</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+               
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for audiobook in audiobooks %}
+            <tr>
+                <td>{{ audiobook.id }}</td>
+                <td>{{ audiobook.title }}</td>
+                <td>{{ audiobook.authors.firstName }} {{ audiobook.authors.lastName }}</td>
+              
+                <td>
+                    <a href="{{ path('app_audiobooks_show', {'id': audiobook.id}) }}">show</a>
+                    <a href="{{ path('app_audiobooks_edit', {'id': audiobook.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <a href="{{ path('app_audiobooks_new') }}" class="btn btn-outline-primary">Create new audiobook</a> 
+
+</main>
+  
+
+{% endblock %}

@@ -1,0 +1,18 @@
+vich_uploader:
+  db_driver: orm
+
+  metadata:
+    type: attribute
+
+  mappings:
+
+    audiobooks_covers:
+      uri_prefix: /audiobooks_covers
+      upload_destination: '%kernel.project_dir%/public/upload/audiobooks_covers'
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+
+    chapters_audios:
+      uri_prefix: /chapters_audios
+      upload_destination: '%kernel.project_dir%/public/upload/chapters_audios'
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

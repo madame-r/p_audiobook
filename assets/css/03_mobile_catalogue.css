@@ -1,0 +1,235 @@
+/* FONT FACE ******************************************************* */
+
+
+
+
+@font-face {
+    font-family: "Meshed";
+    src: url(../font/MeshedDisplay-Regular.woff2);
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+
+
+
+/*  RESET ******************************************************* */
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+
+img,
+svg,
+input,
+video {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+
+
+
+
+
+
+
+#parent-catalogue {
+    background-image: url(../img/fond_catalogue_small.jpg);
+    background-repeat: repeat;
+}
+
+
+
+/*  HEADER ******************************************************* */
+
+
+
+#catalogue-nav-top {
+    display: none;
+}
+
+
+/* CAROUSEL */
+
+
+#carousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+
+
+
+  .all-slides .one-slide img {
+    height: 50vh;
+  }
+  
+  /* Dots **** */
+  
+  .dots {
+    display: flex;
+    width: 20vh;
+    justify-self: center;
+    justify-content: space-evenly;
+    margin: 10px 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .one-dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  
+  .one-dot.active {
+    background-color: rgb(167, 128, 71);
+  }
+  
+
+
+
+/*  MAIN ******************************************************* */
+
+
+
+/* SECTION SEARCH */
+
+#catalogue-search {
+    background-color: #fff9ed;
+    box-shadow: 1px 11px 21px 0px rgb(73, 48, 11);
+    height: 13vh;
+    padding-top: 20px;
+}
+
+
+
+#catalogue-search h2 {
+    font-family: "Meshed";
+    font-size: 50px;
+    text-align: center;
+    color: rgb(73, 48, 11);
+}
+
+
+#search form {
+    display: flex;
+    width: 80vw;
+    justify-self: center;
+}
+
+
+.search-input {
+    height: 3vh;
+    padding-left: 10px;
+    margin-right: 10px;
+    border: 1px solid rgb(73, 48, 11);
+}
+
+
+#search form button {
+    border: 0;
+    background: transparent;
+}
+
+
+#search form button i {
+    font-size: 20px;
+    color: rgb(73, 48, 11);
+}
+
+
+/* SECTION AUDIOBOOKS GALLERY */
+
+
+#audiobooks-gallery {
+    margin-top: 30px;
+}
+
+
+
+
+#all-audiobooks {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 50% 50%;
+}
+
+
+
+
+
+
+.audiobook-item {
+    width: 96% ;
+    height: 96%;
+    justify-self: center;
+}
+
+.audiobook-item img {
+    height: 18vh;
+}
+
+.audiobook-item h2 {
+font-size: 15px;
+}
+
+.audiobook-item p {
+    font-size: 14px;
+    }
+
+
+
+/* OVERLAY */
+
+.audiobook-cover {
+    position: relative;
+    z-index: 1;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 2;
+}
+
+.button-overlay {
+    background-color: transparent;
+    border: 0;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.button-overlay:hover {
+    cursor: pointer;
+}
+
+
+.audiobook-cover:hover .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

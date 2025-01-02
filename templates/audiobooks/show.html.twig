@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Audiobooks{% endblock %}
+
+{% block body %}
+
+<main id="main-show-audiobooks">
+
+    <h1>Audiobook</h1>
+
+    <table class="table">
+        <tbody>
+
+
+            <tr>
+                <th>Cover Image</th>
+                <td>
+                    {% if audiobook.imageName %}
+                        <img src="{{asset('upload/audiobooks_covers/' ~ audiobook.imageName)}}" alt="Cover Image" id="audiobooks-cover">
+                    {% else %}
+                        <p>No cover image available</p>
+                    {% endif %}
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <th>Id</th>
+                <td>{{ audiobook.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ audiobook.title }}</td>
+            </tr>
+
+            <tr>
+                <th>Author</th>
+                <td>{{ audiobook.authors.firstName }} {{ audiobook.authors.lastName }}</td>
+            </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+
+
+    <nav id="show-audiobooks-bottom">
+        <a href="{{ path('app_audiobooks_index') }}">Back to list</a>
+
+        <a href="{{ path('app_audiobooks_edit', {'id': audiobook.id}) }}" class="btn btn-outline-primary">edit</a>
+
+    </nav>
+
+
+
+
+
+</main>
+
+  
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chapters{% endblock %}
+
+{% block body %}
+    <h1>Chapters</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chapter.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ chapter.title }}</td>
+            </tr>
+            <tr>
+                <th>Chapter_order</th>
+                <td>{{ chapter.chapterOrder }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ chapter.duration }}</td>
+            </tr>
+
+
+            <tr>
+                <th>Audiobook</th>
+                <td>{{ chapter.audiobooks.title }}</td>
+            </tr>
+
+            <tr>
+                <th>Audiobook ID</th>
+                <td>{{ chapter.audiobooks.id }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chapters_index') }}">Back to list</a>
+
+    <a href="{{ path('app_chapters_edit', {'id': chapter.id}) }}">edit</a>
+
+   
+{% endblock %}

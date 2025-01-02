@@ -16,6 +16,14 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'script_playback' => [
+        'path' => './assets/script_playback.js',
+        'entrypoint' => true,
+    ],
+    'script_catalogue' => [
+        'path' => './assets/script_catalogue.js',
+        'entrypoint' => true,
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],

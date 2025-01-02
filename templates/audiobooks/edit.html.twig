@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Audiobooks{% endblock %}
+
+{% block body %}
+
+
+<main id="main-edit-audiobooks">
+
+
+    <h1>Edit Audiobooks</h1>
+
+
+
+    <!-- Start the form -->
+    {{ form_start(form) }}
+
+
+    <!-- Display Current Cover Image -->
+    <div class="form-group">
+        <label for="audiobook_cover_image">Current Cover Image:</label>
+        {% if audiobook.imageName %}
+            <!-- Show current image -->
+            <img src="{{asset('upload/audiobooks_covers/' ~ audiobook.imageName)}}" alt="Cover Image" style="max-width: 200px;">
+        {% else %}
+            <p>No cover image available</p>
+        {% endif %}
+    </div>
+
+  <!-- Upload Cover Image -->
+    <div class="form-group">
+       
+        {{ form_widget(form.imageFile, {'attr': {'class': 'form-control-file'}}) }}
+    </div>
+
+    
+    <div class="form-group">
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.authors) }}
+        {{ form_widget(form.authors, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.genre) }}
+        {{ form_widget(form.genre, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Update') }}</button>
+
+    {{ form_end(form) }}
+
+
+    
+    <nav id="edit-audiobooks-bottom">
+    <!-- Navigation Links -->
+    <a href="{{ path('app_audiobooks_index') }}">Back to list</a>
+    {{ include('audiobooks/_delete_form.html.twig') }}
+    </nav>
+
+
+
+</main>
+
+
+
+{% endblock %}

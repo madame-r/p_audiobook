@@ -1,0 +1,44 @@
+{{ form_start(form) }}
+
+<div class="form-group">
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.chapter_order) }}
+    {{ form_widget(form.chapter_order, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.duration) }}
+    {{ form_widget(form.duration, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.audiobooks) }}
+    {{ form_widget(form.audiobooks, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<!-- Current Audio File Display (if available) -->
+<div class="form-group">
+    <label for="chapter_audio_file">Current Audio File:</label>
+    {% if chapter.audioFilename %}
+        <audio controls>
+            <source src="/assets/audio/{{ chapter.audioFilename }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% else %}
+        <p>No audio file available</p>
+    {% endif %}
+</div>
+
+<!-- Audio File Upload Field -->
+<div class="form-group">
+    {{ form_label(form.audioFile) }}
+    {{ form_widget(form.audioFile, {'attr': {'class': 'form-control-file'}}) }}
+</div>
+
+<button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}
