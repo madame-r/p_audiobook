@@ -6,59 +6,139 @@ This web development project is an audiobook player platform designed to provide
 
 ## Core Features
 
-- Admin dashboard
-- Audiobook player
-- Catalogue display
+- Catalog Management
+- Catalog Display
+- Audiobook Player
+
 
 
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+Admin Dashboard
+![App Screenshot](./00_readme/screenshot_01.png)
 
 
-## Usage/Examples
+Catalog Page
+![App Screenshot](./00_readme/screenshot_02.png)
 
-```javascript
-import Component from 'my-project'
+Audiobook Player Page
+![App Screenshot](./00_readme/screenshot_03.png)
 
-function App() {
-  return <Component />
-}
+
+
+## Tips
+
+If you import my sql file 'audiobook_player' located in the 00_readme folder
+
+- You can go to yourlocalhost/login
+- And use the account admin@admin.com / adminadmin
+- Create audiobook informations in this order : author, genre, audiobook, chapter
+
+
+Otherwise :
+- Create your own account at : yourlocalhost/register
+- Create audiobook informations in this order : author, genre, audiobook, chapter
+
+
+
+If you upload your own audio files, remember to check your php.ini to change the size limit if necessary.
+
+
+
+
+## Code Tricks
+
+As a collection, chapters datas needed to be formatted on the back end side, to retrieve them on the front side  for Javascript and the audiobook player. Here is one way to do it. 
+
+
+In the audiobook player controller
+
+```php
+        $chaptersData = [];
+        foreach ($chapters as $chapter) {
+            $chaptersData[] = [
+                'id' => $chapter->getId(),
+                'title' => $chapter->getTitle(),
+                'audioUrl' => '/upload/chapters_audios/' . $chapter->getAudioFilename(), // Adjust based on your entity
+                'duration' => $chapter->getDuration(), // Add the duration
+            ];
+        }
+
+
+
+    
+        return $this->render('playback/index.html.twig', [
+            'audiobook' => $audiobook,
+            'chapters' => $chaptersData,
+            'selectedChapter' => $selectedChapter,
+        ]);
 ```
+
+
+
+In the audiobook player template
+
+```html
+
+  {% block javascripts %}
+
+  <script id="chapters-data" type="application/json">
+        {{ chapters|json_encode()|raw }}
+      </script>
+
+  {% endblock %}
+```
+
+
 
 
 ## Future Improvements
 
-- Catalogue Search Bar
-- Catalogue Filters
+- Catalog Filters
+- Advanced Search
 - User Account
 
 
-## 🚀 About Me
-Hi everyone, I'm Madame R. a web developer from France. 
+## 🍞 About Me
+Hi everyone, I'm Madame R. a Web Developer from France. 
 Currently in training, I'm a database enthusiast.
 Enjoy your stay, have a look at my other repositories and let's get in touch if you wish to work with me.
 
+
+
 ## Tech Stack
 
-**Database:** Workbench, Doctrine
+**Database:** MySQL Workbench, Doctrine
 
-**Back End:** Symfony, WAMP (Windows, Apache, MySQL, PHP)
+**Back End:** Symfony, WAMP (Windows, Apache, MySQL, PHP) or XAMPP (Cross-Platform, Apache, MySQL, PHP, and Perl)
 
-**Front End:** HTML, CSS, Javascript
+**Front End:** HTML, CSS, Javascript, Bootstrap
 
 **IDE:** Visual Studio Code
 
 
+
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+
+Back End
+ - [Dustin Dobervich for Vich Uploader](https://github.com/dustin10/VichUploaderBundle)
+
+Front End
+
+ - [Librivox and their volunteers for the audio files ](https://librivox.org/)
+ - [Public Domain Review team for their inspiring work ](https://publicdomainreview.org/)
+
+ Audiobooks Covers
+ - [Marguerite Gérard ](https://en.wikipedia.org/wiki/Marguerite_G%C3%A9rard)
+ - [Kawanabe Kyōsai](https://en.wikipedia.org/wiki/Kawanabe_Ky%C5%8Dsai)
+ - [Franck Rinehart](https://en.wikipedia.org/wiki/Frank_Rinehart)
+
 
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+
+![CREATIVE COMMONS](./00_readme/badge_cc.png)
 

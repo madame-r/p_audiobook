@@ -1,3 +1,5 @@
+
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Chapters index{% endblock %}
@@ -7,6 +9,8 @@
 <main id="main-chapters-index">
 
     <h1>Chapters index</h1>
+
+    <a href="{{ path('app_chapters_new') }}" class="btn btn-outline-primary button-new">Create New Chapter</a>
 
     <table class="table">
         <thead>
@@ -44,7 +48,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_chapters_new') }}" class="btn btn-outline-primary">Create New Chapter</a>
+    
 
 </main>
 
