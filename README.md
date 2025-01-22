@@ -49,10 +49,10 @@ If you upload your own audio files, remember to check your php.ini to change the
 
 ## Code Tricks
 
-As a collection, chapters datas needed to be formatted on the back end side, to retrieve them on the front side  for Javascript and the audiobook player. Here is one way to do it. 
+As a collection, chapters datas needed to be formatted on the back end side, in order to pass them on the front side  for Javascript and the audiobook player. Here is one way to do it. 
 
 
-In the audiobook player controller
+In the audiobook player controller, inside the index function :
 
 ```php
         $chaptersData = [];
@@ -107,30 +107,31 @@ Enjoy your stay, have a look at my other repositories and let's get in touch if 
 
 
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-**Database:** MySQL Workbench, Doctrine
+**Database:** MySQL, Doctrine ORM
 
-**Back End:** Symfony, WAMP (Windows, Apache, MySQL, PHP) or XAMPP (Cross-Platform, Apache, MySQL, PHP, and Perl)
+**Back End:** PHP, Symfony
 
-**Front End:** HTML, CSS, Javascript, Bootstrap
+**Front End:** HTML, CSS, Javascript, React
 
 **IDE:** Visual Studio Code
 
+**Versioning:** Git, Github
 
 
-## Acknowledgements
+
+## ❤️ Acknowledgements
 
 
 Back End
  - [Dustin Dobervich for Vich Uploader](https://github.com/dustin10/VichUploaderBundle)
+ - [Librivox and their volunteers for the audio files ](https://librivox.org/)
 
 Front End
 
- - [Librivox and their volunteers for the audio files ](https://librivox.org/)
- - [Public Domain Review team for their inspiring work ](https://publicdomainreview.org/)
+ - [Public Domain Review for their inspiring work ](https://publicdomainreview.org/)
 
- Audiobooks Covers
  - [Marguerite Gérard ](https://en.wikipedia.org/wiki/Marguerite_G%C3%A9rard)
  - [Kawanabe Kyōsai](https://en.wikipedia.org/wiki/Kawanabe_Ky%C5%8Dsai)
  - [Franck Rinehart](https://en.wikipedia.org/wiki/Frank_Rinehart)
